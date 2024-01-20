@@ -1,27 +1,58 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import LinksMobileItem from "./LinksMobileItem";
 
-export default function LinksMobile() {
+export default function LinksMobile(isOpen) {
+	const [isHidden, setIsHidden] = useState(!isOpen.isOpen);
+
+	useEffect(() => {
+		if (!isOpen.isOpen) {
+			const timeoutId = setTimeout(() => {
+				setIsHidden(true);
+			}, 1500);
+
+			return () => clearTimeout(timeoutId);
+		} else {
+			setIsHidden(false);
+		}
+	}, [isOpen.isOpen]);
 	return (
-		<div className="md:hidden">
-			<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-				<a
-					href="/"
-					className="text-white block hover:bg-white hover:text-black rounded-lg"
-				>
-					Home
-				</a>
-				<a
-					href="/Albums"
-					className="text-white block hover:bg-white hover:text-black rounded-lg"
-				>
-					Albums
-				</a>
-				<a
-					href="/AboutMe"
-					className="text-white block hover:bg-white hover:text-black rounded-lg"
-				>
-					About Me
-				</a>
+		<div
+			className={`md:hidden ${isOpen.isOpen || !isHidden ? "block" : "hidden"}`}
+		>
+			<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-end ">
+				<LinksMobileItem
+					hrefLink={"/"}
+					text={"Strona Główna"}
+					delay={"animation-delay-none"}
+					fade={
+						isOpen.isOpen
+							? "animate-fade-left"
+							: "animate-fade-right animate-reverse"
+					}
+				/>
+
+				<LinksMobileItem
+					hrefLink={"/Albums"}
+					text={"Galeria Zdjęć"}
+					delay={"animation-delay-300"}
+					fade={
+						isOpen.isOpen
+							? "animate-fade-left"
+							: "animate-fade-right animate-reverse"
+					}
+				/>
+
+				<LinksMobileItem
+					hrefLink={"/AboutMe"}
+					text={"O Mnie"}
+					delay={"animation-delay-600"}
+					fade={
+						isOpen.isOpen
+							? "animate-fade-left"
+							: "animate-fade-right animate-reverse"
+					}
+				/>
 			</div>
 		</div>
 	);
