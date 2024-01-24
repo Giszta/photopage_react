@@ -21,9 +21,10 @@ export default function Navbar() {
 						<div className="flex-shrink-0">
 							<a href="/" className="text-white sm:bg-black ">
 								<Image
-									className="bg-black rounded-3xl overflow-hidden"
+									className="bg-black rounded-3xl overflow-hidden "
 									src={logo}
 									alt="Logo"
+									priority
 								/>
 							</a>
 						</div>
