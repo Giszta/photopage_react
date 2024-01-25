@@ -24,6 +24,7 @@ export default function Navbar() {
 									className="bg-black rounded-3xl overflow-hidden"
 									src={logo}
 									alt="Logo"
+									priority
 								/>
 							</a>
 						</div>

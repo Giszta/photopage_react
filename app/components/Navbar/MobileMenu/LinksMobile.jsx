@@ -17,9 +17,7 @@ export default function LinksMobile(isOpen) {
 		}
 	}, [isOpen.isOpen]);
 	return (
-		<div
-			className={`md:hidden ${isOpen.isOpen || !isHidden ? "block" : "hidden"}`}
-		>
+		<div className={` ${isOpen.isOpen || !isHidden ? "block" : "hidden"}`}>
 			<div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-end ">
 				<LinksMobileItem
 					hrefLink={"/"}
