@@ -1,3 +1,4 @@
+import Footer from "./components/Footer/Footer";
 import HomePhotoSlide from "./components/HomePage/HomePhotoSlide";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -6,7 +7,7 @@ export default function Home() {
 		<main>
 			<Navbar />
 			<HomePhotoSlide />
-			<h2>Home Page</h2>
+			<Footer />
 		</main>
 	);
 }
